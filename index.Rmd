@@ -21,32 +21,36 @@ Feel free to calculate and report values that you find relevant. Again, remember
 
 ### The Dataset
 
-Who collected the data?  
-How was the data collected or generated?  
-Why was the data collected?  
-How many observations (rows) are in your data?  
-How many features (columns) are in the data?  
-What, if any, ethical questions or questions of power do you need to consider when working with this data?  
-What are possible limitations or problems with this data?   (at least 200 words)
+This particular dataset provides information about prison populations by county 
+and state within the United States. The data was collected by the Vera Institute 
+to expose patterns of inequality in incarceration data. The data was collected 
+by compiling information from the Bureau of Justice Statistics (BJS) data 
+collections. There are 153811 rows and 36 columns in the dataset which is quite 
+large considering that this is only a portion of the real dataset. There are 
+definitely some questions of power that need to be addressed when working with 
+data that can be sensitive. It is the programmers responsibility to use this 
+data to contribute to the general knowledge about this population. Data should 
+not be used to push a personal narrative or agenda especially one that is harmful 
+to others. Finally, it is important to note that there are some possible 
+limitations with this data such as the number of missing data from the table 
+musically for certain race categories. Without this data it is difficult to 
+evaluate the accuracy of the provided visualizations and data summaries. This is 
+not to say that this is not a credible source of information but rather 
+something that has faults and should not always be taken at face value. Context 
+is as important as the numerical data itself. 
 
 
 ### Trends Over Time Chart
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
+This visualization displays the total prison population for the top 5 largest 
+counties (in 2018) over the course of 5 years. Since this database lacks
+information for prison population past 2016, it seemed more interesting to only
+include valid values. This chart is included because it encompasses the most
+recent data as described by the data frame. An interesting pattern that emerged
+was that Harris County, GA surpassed Maricopa County, AZ in prison population
+after 2014.
 
-The first chart that you will create and include will show the trend over time of your variable/topic. Think carefully about what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- Show more than one, but fewer than ~10 trends
-  - This may mean showing the same measure for different locations or different racial groups. Think carefully about a meaningful comparison of locations (e.g., the top 10 counties in a state, top 10 states, etc.)
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear legend title
-
-When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, code = readLines("chart1_example.R")}
+``````{r, echo = FALSE, warning = FALSE, message = FALSE, code = readLines("trends_over_time.R")}
 ```
 
 ### Variable Comparison Chart

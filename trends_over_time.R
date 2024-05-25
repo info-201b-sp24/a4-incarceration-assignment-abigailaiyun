@@ -1,4 +1,4 @@
-# Donwload libraries
+# Download libraries
 library(ggplot2)
 library(dplyr)
 

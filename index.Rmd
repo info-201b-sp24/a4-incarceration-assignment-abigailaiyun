@@ -5,19 +5,28 @@ output: html_document
 
 ### Introduction
 
-An introduction of the problem domain and a description of the variable(s) you are choosing to analyze (and why!)
+Investigate the population of imprisoned persons per state and county which
+highlights the locations in the country with high incarceration. Additionally, 
+we compare the proportion of incarcerated Black Americans to white Americans.
+This emphasizes the gross disproportion of incarcerated individuals and invokes
+a larger question about racial discrimination in the United States.
 
 ### Summary Information
+```{r summary, echo=FALSE, message=FALSE}
+library(dplyr)
+source("summary.R")
+options(scipen = 999)
+```
 
-Write a summary paragraph of findings that includes the 5 values calculated from your summary information R script
+Through this project, it is found that as of 2018 **`r county`** with a total
+population of **`r population_2018` people**. This county had the most imprisoned 
+citizens with **`r average` as the average** number of incarnated people. 
+We also know that on average Black Americans tend to have higher rates of 
+incarceration than white Americans. In fact, the largest proportion for Black 
+Americans was **`r proportion$black` in `r proportion$year`**. Finally, we 
+calculated some data about the sate with the largest imprisonment rate which was 
+**`r state` at `r pop`** prisoners.
 
-These will likely be calculated using your DPLYR skills, answering questions such as: 
-
-- What is the average value of my variable across all the counties (in the current year)?
-- Where is my variable the highest / lowest?
-- How much has my variable change over the last N years?
-
-Feel free to calculate and report values that you find relevant. Again, remember that the purpose is to think about how these measure of incarceration vary by race.
 
 ### The Dataset
 
@@ -48,22 +57,34 @@ information for prison population past 2016, it seemed more interesting to only
 include valid values. This chart is included because it encompasses the most
 recent data as described by the data frame. An interesting pattern that emerged
 was that Harris County, GA surpassed Maricopa County, AZ in prison population
-after 2014.
+after 2014. Note that many of these counties are densely populated which 
+suggests higher rates of diversity among communities. 
 
 ``````{r, echo = FALSE, warning = FALSE, message = FALSE, code = readLines("trends_over_time.R")}
-```
+``````
+
 
 ### Variable Comparison Chart
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
+The following chart compares the proportion of incarcerated people to the total
+population of the corresponding racial group ages 15 to 64. It is essential to
+include this chart because it shows the disparities between the incarceration rate
+for Black Americans versus white Americans. While Black Americans are consistently 
+disproportionately imprisoned in comparison to their white counterparts there 
+is a noticeable spike in the early 90s and 2000s. There could be many reasons
+for this however, I believe that this was due to the influx in social justice
+movements.
 
-The second chart that you will create and include will show how two different (continuous) variables are related to one another. Again, think carefully about what such a comparison means and what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
+``````{r, echo = FALSE, warning = FALSE, message = FALSE, code = readLines("var_compare.R")}
+```
 
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- If you choose to add a color encoding (not required), you need a legend for your different color and a clear legend title
 
 ### Map
+
+This map displays the number of imprisoned persons by state. The legend to the
+right of the map denotes the color to the corresponding population number. This
+is important to include because it highlights visual patterns in the US. For
+example, an important pattern is ...
 
 Include a chart. Make sure to describe why you included the chart, and what patterns emerged
 

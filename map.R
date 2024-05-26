@@ -11,16 +11,22 @@ states <- read.csv("/Users/Abby/cs/info201/a4-incarceration-assignment-abigailai
 map <- read_sf(
   "/Users/Abby/cs/info201/a4-incarceration-assignment-abigailaiyun/lower-48-united-states-with-state-boundaries_715.geojson"
 )
-ggplot(map) +
-  geom_sf(linewidth = 0.5)
 
+# Make a new data frame containing the state, average prison population, and
+# state coordinates
 population <- data %>% 
   left_join(states, by = c("state" = "Abbreviation")) %>% 
-  left_join(map, by = c("State" = "name")) %>% 
-  select(State, total_prison_pop, geometry)
+  left_join(map, by = c("State" = "name")) %>%
+  group_by(State) %>% 
+  summarise(
+    avg_state_pop = mean(total_pop, na.rm = TRUE),
+    geometry = first(geometry)
+  ) %>%
+  ungroup()
 
+# Plot visually on map
 ggplot(population) +
-  geom_sf(aes(geometry = geometry, fill = total_prison_pop)) +
-  labs(fill = "Population") +
+  geom_sf(aes(geometry = geometry, fill = avg_state_pop/1000)) +
+  labs(fill = "Population\n(thousand)") +
   ggtitle("Number of Imprisoned Persons Per State") +
   theme_minimal()

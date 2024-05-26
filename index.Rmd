@@ -30,12 +30,12 @@ calculated some data about the sate with the largest imprisonment rate which was
 
 ### The Dataset
 
-This particular dataset provides information about prison populations by county 
+This particular data set provides information about prison populations by county 
 and state within the United States. The data was collected by the Vera Institute 
 to expose patterns of inequality in incarceration data. The data was collected 
 by compiling information from the Bureau of Justice Statistics (BJS) data 
-collections. There are 153811 rows and 36 columns in the dataset which is quite 
-large considering that this is only a portion of the real dataset. There are 
+collections. There are 153811 rows and 36 columns in the data set which is quite 
+large considering that this is only a portion of the real data set. There are 
 definitely some questions of power that need to be addressed when working with 
 data that can be sensitive. It is the programmers responsibility to use this 
 data to contribute to the general knowledge about this population. Data should 
@@ -76,21 +76,20 @@ for this however, I believe that this was due to the influx in social justice
 movements.
 
 ``````{r, echo = FALSE, warning = FALSE, message = FALSE, code = readLines("var_compare.R")}
-```
+``````
 
 
 ### Map
 
-This map displays the number of imprisoned persons by state. The legend to the
-right of the map denotes the color to the corresponding population number. This
-is important to include because it highlights visual patterns in the US. For
-example, an important pattern is ...
+This map displays the average number of imprisoned persons by state per 
+thousand. The legend to the right of the map denotes the color to the 
+corresponding population number. This is important to include because it
+highlights visual patterns in the US. For example, an important pattern is 
+that coastal states tend to have higher rates of incarceration than the Midwest
+and South. Population dense states such as Washington, California,
+Florida, and New York follow this pattern remaining upwards of 200,000
+incarcerated people on average.
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
-
-The last chart that you will create and include will show how a variable is distributed geographically. Again, think carefully about what such a comparison means and what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- Your map needs a title
-- Your color scale needs a legend with a clear label
-- Use a map based coordinate system to set the aspect ratio of your map
+``````{r, echo = FALSE, warning = FALSE, message = FALSE, code = readLines("map.R")}
+``````
 
